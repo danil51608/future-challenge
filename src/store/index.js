@@ -4,6 +4,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 const initState = {
   books: {},
   showError: false,
+  showLoader: false,
   sort: "relevance",
 };
 
@@ -17,19 +18,19 @@ const appReducer = (state = initState, action) => {
     case "SHOW_ERROR":
       return {
         ...state,
-        showError: true,
-      };
-    case "HIDE_ERROR":
-      return {
-        ...state,
-        showError: false,
+        showError: action.showError,
       };
     case "SET_SORT":
       return {
         ...state,
-        sort: action.sort
+        sort: action.sort,
       };
-      
+
+    case "SHOW_LOADER":
+      return {
+        ...state,
+        showLoader: action.showLoader,
+      };
   }
   return state;
 };

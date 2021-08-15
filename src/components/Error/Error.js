@@ -4,7 +4,8 @@ import {useDispatch} from 'react-redux'
 const Error = props => {
   const dispatch = useDispatch()
   const clickHandler = () => {
-    dispatch({type: 'HIDE_ERROR'})
+    dispatch({type: 'SHOW_ERROR', showError: false});
+    dispatch({type: 'SHOW_LOADER', showLoader: false})
   }
   return (
     <Modal>
