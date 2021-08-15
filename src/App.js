@@ -1,23 +1,17 @@
-import logo from './logo.svg';
+import {useState} from 'react'
+import SearchBar from './components/SearchBar/SearchBar'
+import BooksHolder from './components/Books/BooksHolder'
+import Error from './components/Error/Error'
 import './App.css';
 
 function App() {
+  const [books, setBooks] = useState()
+  const [showError, setShowError] = useState(false)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <SearchBar setShowError={setShowError} setBooks={setBooks} />
+      {showError && <Error setShowError={setShowError}/>}
+      {books && <BooksHolder books={books.items} />}
     </div>
   );
 }

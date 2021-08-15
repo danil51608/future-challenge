@@ -1,0 +1,28 @@
+.wrapper{
+    background: #797979;
+    padding: 50px;
+}
+
+.wrapper h1{
+    color: #fff;
+}
+
+.search-container{
+    width: 100%;
+    margin: 0 auto;
+}
+
+.search-container button{
+    padding: 10px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.search{
+    width: 80%;
+    padding: 10px;
+    font-size: 1rem;
+    outline: none;
+}
+
+

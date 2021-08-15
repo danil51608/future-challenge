@@ -1,0 +1,7 @@
+.BooksHolder{
+    background: #5a5151;
+    padding-top: 10px;
+    justify-content: space-around;
+    display: flex;
+    flex-wrap: wrap;
+}
