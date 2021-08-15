@@ -1,10 +1,12 @@
 import { useState } from "react";
 import axios from "axios";
 import styles from "./SearchBar.module.css";
+import {useDispatch} from "react-redux"
 
 const SearchBar = (props) => {
   const [searchText, setSearchText] = useState("");
   const [category, setCategory] = useState("");
+  const dispatch = useDispatch()
   const searchChangeHandler = (e) => {
     setSearchText(e.target.value);
   };
@@ -18,8 +20,8 @@ const SearchBar = (props) => {
         `https://www.googleapis.com/books/v1/volumes?q=${searchText}+subject:${category}`
       )
       .then((response) => response.data)
-      .then((data) => props.setBooks(data))
-      .catch((e) => props.setShowError(true));
+      .then((data) => dispatch({type: 'SET_BOOKS', books: data}))
+      .catch((e) => dispatch({type: 'SHOW_ERROR'}));
   };
 
   return (

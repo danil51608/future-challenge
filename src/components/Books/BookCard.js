@@ -10,7 +10,7 @@ const BookCard = (props) => {
         <img src={imgSrc} alt={info.title} />
       </div>
       <div className={styles['main-info']}>
-        <h1>{info.title}</h1>
+        <h3>{info.title}</h3>
         {info.categories ? <h2>{info.categories[0]}</h2> : null}
         {info.authors ? info.authors.map(author => <p key={author}>{author}</p>) : <p>Author is unknown</p>}
       </div>

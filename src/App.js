@@ -1,17 +1,16 @@
-import {useState} from 'react'
+import {useSelector} from 'react-redux'
 import SearchBar from './components/SearchBar/SearchBar'
 import BooksHolder from './components/Books/BooksHolder'
 import Error from './components/Error/Error'
 import './App.css';
 
 function App() {
-  const [books, setBooks] = useState()
-  const [showError, setShowError] = useState(false)
+  const showError = useSelector(state => state.showError)
   return (
     <div className="container">
-      <SearchBar setShowError={setShowError} setBooks={setBooks} />
-      {showError && <Error setShowError={setShowError}/>}
-      {books && <BooksHolder books={books.items} />}
+      <SearchBar />
+      {showError && <Error />}
+      <BooksHolder />
     </div>
   );
 }

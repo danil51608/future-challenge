@@ -5,3 +5,9 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.BooksHolder h1 {
+    color: #fff;
+    padding: 20px;
+}
+
