@@ -1,0 +1,22 @@
+.error-body{
+    background: #fff;
+    width: 40%;
+    border-radius: 10px;
+    padding: 40px 0;
+    position: relative;
+    text-align: center;
+  }
+  
+  .error-body > button{
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    background: #e27272;
+    width: 70px;
+    padding: 10px 0;
+    border-radius: 10px;
+  }
+  .error-body > button:hover{
+    background: #a35151;
+    color: #fff;
+  }

@@ -1,9 +1,9 @@
-import Modal from '../Error/Modal'
+import Backdrop from './Backdrop'
 import styles from './Loader.module.css'
 
 const Loader = () => {
   return (
-    <div className={styles.container}>
+    <Backdrop>
         <div className={styles['lds-roller']}>
           <div></div>
           <div></div>
@@ -14,7 +14,7 @@ const Loader = () => {
           <div></div>
           <div></div>
         </div>
-    </div>
+    </Backdrop>
   );
 };
 
