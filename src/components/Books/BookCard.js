@@ -11,6 +11,7 @@ const BookCard = (props) => {
       </div>
       <div className={styles['main-info']}>
         <h3>{info.title}</h3>
+        <h3>Published: {info.publishedDate}</h3>
         {info.categories ? <h2>{info.categories[0]}</h2> : null}
         {info.authors ? info.authors.map(author => <p key={author}>{author}</p>) : <p>Author is unknown</p>}
       </div>

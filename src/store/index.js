@@ -4,6 +4,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 const initState = {
   books: {},
   showError: false,
+  sort: "relevance",
 };
 
 const appReducer = (state = initState, action) => {
@@ -22,6 +23,11 @@ const appReducer = (state = initState, action) => {
       return {
         ...state,
         showError: false,
+      };
+    case "SET_SORT":
+      return {
+        ...state,
+        sort: action.sort
       };
   }
   return state;

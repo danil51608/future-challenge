@@ -1,17 +1,17 @@
 import { useState } from "react";
+import {useDispatch} from "react-redux"
 import axios from "axios";
 import styles from "./SearchBar.module.css";
-import {useDispatch} from "react-redux"
+
+import SearchSettings from './SearchSettings';
 
 const SearchBar = (props) => {
   const [searchText, setSearchText] = useState("");
   const [category, setCategory] = useState("");
+  const [sort, setSort] = useState("relevance");
   const dispatch = useDispatch()
   const searchChangeHandler = (e) => {
     setSearchText(e.target.value);
-  };
-  const categoryChangeHandler = (e) => {
-    setCategory(e.target.value);
   };
 
   const makeRequest = async () => {
@@ -37,18 +37,7 @@ const SearchBar = (props) => {
         />
         <button onClick={makeRequest}>Search</button>
       </div>
-      <div className={styles["search-settings"]}>
-        <label htmlFor="categories">Categories</label>
-        <select onChange={categoryChangeHandler} id="categories">
-          <option value="all">All</option>
-          <option value="art">Art</option>
-          <option value="biography">Biography</option>
-          <option value="computers">Computers</option>
-          <option value="history">History</option>
-          <option value="medical">Medical</option>
-          <option value="poetry">Poetry</option>
-        </select>
-      </div>
+      <SearchSettings setCategory={setCategory} setSort={setSort}/>
     </div>
   );
 };
