@@ -1,20 +1,18 @@
-import {useSelector} from 'react-redux'
-import SearchBar from './components/SearchBar/SearchBar'
-import BooksHolder from './components/Books/BooksHolder'
-import Error from './components/Error/Error'
-import Loader from './components/UI/Loader'
-import './App.css';
+import MainPage from "./Pages/MainPage";
+import BookPage from "./Pages/BookPage";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import "./App.css";
 
 function App() {
-  const showError = useSelector(state => state.showError)
-  const showLoader = useSelector(state => state.showLoader)
   return (
-    <div className="container">
-      <SearchBar />
-      {showLoader && <Loader />}
-      {showError && <Error />}
-      <BooksHolder />
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <div className="container">
+          <Route exact path="/" children={<MainPage />} />
+          <Route path="/book/:id" children={<BookPage />} />
+        </div>
+      </Switch>
+    </BrowserRouter>
   );
 }
 

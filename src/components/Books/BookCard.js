@@ -1,13 +1,15 @@
 import styles from "./BookCard.module.css";
-import emptyCover from '../../Assets/empty_cover.jpg';
+import emptyCover from '../../Assets/empty_cover.png';
 
 const BookCard = (props) => {
   const info = props.book.volumeInfo;
   const imgSrc = info.imageLinks ? info.imageLinks.smallThumbnail : emptyCover
   return (
     <div className={styles["card-body"]}>
-      <div className={styles['img-container']}>
-        <img src={imgSrc} alt={info.title} />
+      <div className={styles['img-part']}>
+        <div className={styles['img-container']}>
+          <img src={imgSrc} alt={info.title} />
+        </div>
       </div>
       <div className={styles['main-info']}>
         <h3>{info.title}</h3>

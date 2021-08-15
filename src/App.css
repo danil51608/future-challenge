@@ -1,8 +1,23 @@
+::-webkit-scrollbar{
+  background: #3F334D;
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb{
+  background: #fff;
+}
+
 *{
   margin: 0;
   padding: 0;
   border: none;
   box-sizing: border-box;
+}
+
+
+
+body{
+  background: #B2B6BD;
 }
 
 .App {
