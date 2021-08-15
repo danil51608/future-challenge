@@ -8,7 +8,6 @@ import SearchSettings from './SearchSettings';
 const SearchBar = (props) => {
   const [searchText, setSearchText] = useState("");
   const [category, setCategory] = useState("");
-  const [sort, setSort] = useState("relevance");
   const dispatch = useDispatch()
   const searchChangeHandler = (e) => {
     setSearchText(e.target.value);
@@ -37,7 +36,7 @@ const SearchBar = (props) => {
         />
         <button onClick={makeRequest}>Search</button>
       </div>
-      <SearchSettings setCategory={setCategory} setSort={setSort}/>
+      <SearchSettings setCategory={setCategory}/>
     </div>
   );
 };

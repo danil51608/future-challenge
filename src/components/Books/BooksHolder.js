@@ -14,8 +14,6 @@ const BooksHolder = (props) => {
     books.sort((a, b) => {
       let dateA = Date.parse(a.volumeInfo.publishedDate);
       let dateB = Date.parse(b.volumeInfo.publishedDate);
-      dateA = new Date(dateA).getFullYear();
-      dateB = new Date(dateB).getFullYear();
       return dateB - dateA;
     });
   }

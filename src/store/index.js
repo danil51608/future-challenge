@@ -29,6 +29,7 @@ const appReducer = (state = initState, action) => {
         ...state,
         sort: action.sort
       };
+      
   }
   return state;
 };
