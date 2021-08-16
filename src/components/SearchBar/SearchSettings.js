@@ -4,9 +4,8 @@ import styles from "./SearchBar.module.css";
 
 const SearchSettings = (props) => {
   const dispatch = useDispatch();
-  const { setCategory, setSort } = props;
   const categoryChangeHandler = (e) => {
-    setCategory(e.target.value);
+    dispatch({ type: 'SET_CATEGORY', category: e.target.value });
   };
   const sortChangeHandler = (e) => {
     dispatch({ type: "SET_SORT", sort: e.target.value });

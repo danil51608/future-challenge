@@ -1,3 +1,4 @@
+import nextId from "react-id-generator";
 import styles from "./BookCard.module.css";
 import emptyCover from '../../Assets/empty_cover.png';
 

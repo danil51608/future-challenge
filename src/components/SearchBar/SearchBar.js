@@ -1,38 +1,38 @@
 import { useState, useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
-import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+
 import styles from "./SearchBar.module.css";
 
 import SearchSettings from "./SearchSettings";
 
 const SearchBar = (props) => {
-  const [searchText, setSearchText] = useState("");
-  const [category, setCategory] = useState("");
+  const searchText = useSelector(state => state.searchText)
+  const category = useSelector(state => state.category)
+  const booksObj = useSelector((state) => state.booksObj);
+  const page = useSelector(state => state.page)
+
+  const { makeRequest } = props;
+  
 
   const searchRef = useRef();
-
   const dispatch = useDispatch();
 
   const searchChangeHandler = (e) => {
-    console.log(searchText);
-    setSearchText(e.target.value);
+    dispatch({type: 'SET_SEARCH_TEXT', text: e.target.value})
   };
 
-  const makeRequest = async () => {
-    dispatch({ type: "SHOW_LOADER", showLoader: true });
-    console.log(searchText);
-    await axios
-      .get(
-        `https://www.googleapis.com/books/v1/volumes?q=${searchText}+subject:${category}`,
-        { params: { startIndex: 0, maxResults: 30 } }
-      )
-      .then((response) => response.data)
-      .then((data) => {
-        dispatch({ type: "SET_BOOKS", books: data });
-        dispatch({ type: "SHOW_LOADER", showLoader: false });
-      })
-      .catch((e) => dispatch({ type: "SHOW_ERROR", showError: true }));
+  const searchHandler = () => {
+    const promise = makeRequest(searchText, category, page);
+    promise.then((data) => {
+      console.log(data)
+      dispatch({ type: "SET_BOOKS_OBJ", booksObj: data });
+      dispatch({ type: "SET_PAGE", page: 0})
+    })
+    .finally(()=>{
+      dispatch({ type: "SHOW_LOADER", showLoader: false });
+    })
   };
+
 
   useEffect(() => {
     searchRef.current.focus();
@@ -41,7 +41,7 @@ const SearchBar = (props) => {
   useEffect(() => {
     const listener = (e) => {
       if (e.code === "Enter") {
-        makeRequest();
+        searchHandler()
       }
     };
     document.addEventListener("keydown", listener);
@@ -62,9 +62,10 @@ const SearchBar = (props) => {
           placeholder="Type a book name..."
           ref={searchRef}
         />
-        <button onClick={makeRequest}>Search</button>
+        <button onClick={searchHandler}>Search</button>
       </div>
-      <SearchSettings setCategory={setCategory} />
+      {booksObj.items && <h3>Found {booksObj.totalItems} results</h3>}
+      <SearchSettings />
     </div>
   );
 };
