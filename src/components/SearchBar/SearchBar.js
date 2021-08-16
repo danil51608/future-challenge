@@ -26,7 +26,7 @@ const SearchBar = (props) => {
     promise.then((data) => {
       console.log(data)
       dispatch({ type: "SET_BOOKS_OBJ", booksObj: data });
-      dispatch({ type: "SET_PAGE", page: 0})
+      dispatch({ type: "SET_PAGE", page: 30})
     })
     .finally(()=>{
       dispatch({ type: "SHOW_LOADER", showLoader: false });

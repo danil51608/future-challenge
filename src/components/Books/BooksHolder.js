@@ -30,9 +30,9 @@ const BooksHolder = (props) => {
           return;
         }
         console.log(data);
+        dispatch({ type: "SET_PAGE", page: page + 30 });
         dispatch({ type: "LOAD_MORE_BOOKS", books: data.items });
 
-        dispatch({ type: "SET_PAGE", page: page + 30 });
       })
       .finally(() => {
         dispatch({ type: "SHOW_LOADER", showLoader: false });

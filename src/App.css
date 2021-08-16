@@ -4,7 +4,7 @@
 }
 
 ::-webkit-scrollbar-thumb{
-  background: #fff;
+  background: #629ac9;
 }
 
 *{
@@ -13,6 +13,7 @@
   border: none;
   box-sizing: border-box;
 }
+
 
 
 
@@ -64,3 +65,7 @@ body{
   margin: 0 auto;
 }
 
+
+.content-container{
+  position: relative;
+}
