@@ -1,24 +1,21 @@
-::-webkit-scrollbar{
-  background: #3F334D;
+::-webkit-scrollbar {
+  background: #3f334d;
   width: 5px;
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
   background: #629ac9;
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
   border: none;
   box-sizing: border-box;
 }
 
-
-
-
-body{
-  background: #B2B6BD;
+body {
+  background: #b2b6bd;
 }
 
 .App {
@@ -60,12 +57,11 @@ body{
   }
 }
 
-.container{
+.container {
   max-width: 1200px;
   margin: 0 auto;
 }
 
-
-.content-container{
+.content-container {
   position: relative;
 }

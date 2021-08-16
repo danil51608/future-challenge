@@ -8,16 +8,16 @@ const initState = {
   sort: "relevance",
   searchText: "",
   category: "",
-  page: 0
+  page: 0,
 };
 
 const appReducer = (state = initState, action) => {
   switch (action.type) {
     case "SET_PAGE":
-      return{
+      return {
         ...state,
-        page: action.page
-      }
+        page: action.page,
+      };
 
     case "SET_CATEGORY":
       return {
@@ -34,7 +34,10 @@ const appReducer = (state = initState, action) => {
     case "LOAD_MORE_BOOKS":
       return {
         ...state,
-        booksObj: {...state.booksObj, items: [...state.booksObj.items, ...action.books]}
+        booksObj: {
+          ...state.booksObj,
+          items: [...state.booksObj.items, ...action.books],
+        },
       };
 
     case "SET_BOOKS_SEARCH":

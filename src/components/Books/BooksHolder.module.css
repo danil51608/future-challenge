@@ -1,33 +1,31 @@
-.wrapper{
-    background: #574B60;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.wrapper {
+  background: #574b60;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.wrapper button{
-    width: 100px;
-    height: 50px;
-    background: #476a97;
-    color: #fff;
-    border-radius: 10px;
-    font-weight: bold;
+.wrapper button {
+  width: 100px;
+  height: 50px;
+  background: #476a97;
+  color: #fff;
+  border-radius: 10px;
+  font-weight: bold;
 }
 
-.wrapper button:hover{
-    background: #476a97;
+.wrapper button:hover {
+  background: #476a97;
 }
 
-.BooksHolder{
-    
-    justify-content: space-around;
-    display: flex;
-    flex-wrap: wrap;
+.BooksHolder {
+  justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .BooksHolder h1 {
-    color: #fff;
-    padding: 20px;
+  color: #fff;
+  padding: 20px;
 }
-

@@ -7,15 +7,17 @@ import BookCard from "./BookCard";
 
 const BooksHolder = (props) => {
   const dispatch = useDispatch();
-  const { makeRequest } = props;
+
+  const [loadMore, setLoadMore] = useState(true);
+
   const searchText = useSelector((state) => state.searchText);
   const category = useSelector((state) => state.category);
   const page = useSelector((state) => state.page);
   const booksObj = useSelector((state) => state.booksObj);
-  const books = booksObj.items;
   const sort = useSelector((state) => state.sort);
-  const [loadMore, setLoadMore] = useState(true);
 
+  const { makeRequest } = props;
+  const books = booksObj.items;
   const booksCopy = [].concat(books);
 
   const itemNotFoundMsg =
@@ -32,7 +34,6 @@ const BooksHolder = (props) => {
         console.log(data);
         dispatch({ type: "SET_PAGE", page: page + 30 });
         dispatch({ type: "LOAD_MORE_BOOKS", books: data.items });
-
       })
       .finally(() => {
         dispatch({ type: "SHOW_LOADER", showLoader: false });
@@ -51,15 +52,16 @@ const BooksHolder = (props) => {
     <div className={styles.wrapper}>
       <div className={styles.BooksHolder}>
         {books
-          ? booksCopy.map((book) => (
-              <Link key={book.id}
+          ? booksCopy.map((book, i) => (
+              <Link
+                key={book.id+i}
                 style={{ textDecoration: "none", color: "#fff" }}
                 to={{
                   pathname: `/book/:${book.id}`,
                   state: { book },
                 }}
               >
-                <BookCard  book={book} />
+                <BookCard book={book} />
               </Link>
             ))
           : itemNotFoundMsg}

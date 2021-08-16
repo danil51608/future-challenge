@@ -9,10 +9,10 @@ import axios from "axios";
 import "./App.css";
 
 function App() {
+  const dispatch = useDispatch();
+
   const showError = useSelector((state) => state.showError);
   const showLoader = useSelector((state) => state.showLoader);
-
-  const dispatch = useDispatch();
 
   const makeRequest = async (searchText, category, page) => {
     dispatch({ type: "SHOW_LOADER", showLoader: true });
@@ -32,9 +32,7 @@ function App() {
         <SearchBar makeRequest={makeRequest} />
         <div className="content-container">
           <BooksHolder makeRequest={makeRequest} />
-          <Route path="/book/:id">
-            <BookDetail></BookDetail>
-          </Route>
+          <Route path="/book/:id" children={<BookDetail />} />
         </div>
         {showLoader && <Loader />}
         {showError && <Error />}
