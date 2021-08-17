@@ -7,18 +7,17 @@ import Error from "./components/Error/Error";
 import Loader from "./components/UI/Loader";
 import axios from "axios";
 import "./App.css";
-console.log(process.env.REACT_APP_KEY)
 
 function App() {
   const dispatch = useDispatch();
   const showError = useSelector((state) => state.showError);
   const showLoader = useSelector((state) => state.showLoader);
-
+  const apiKey = process.env.REACT_APP_KEY
   const makeRequest = async (searchText, category, page) => {
     dispatch({ type: "SHOW_LOADER", showLoader: true });
     const promise = await axios
       .get(
-        `https://www.googleapis.com/books/v1/volumes?q=${searchText}+subject:${category}`,
+        `https://www.googleapis.com/books/v1/volumes?q=${searchText}+subject:${category}&key=${apiKey}`,
         { params: { startIndex: page, maxResults: 30 } }
       )
       .then((res) => res.data)
