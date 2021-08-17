@@ -17,11 +17,14 @@ function App() {
     dispatch({ type: "SHOW_LOADER", showLoader: true });
     const promise = await axios
       .get(
-        `https://www.googleapis.com/books/v1/volumes?q=${searchText}+subject:${category}&key=${apiKey}`,
-        { params: { startIndex: page, maxResults: 30 } }
+        `https://www.googleapis.com/books/v1/volumes?q=${searchText}+subject:${category}`,
+        { params: { startIndex: page, maxResults: 30, key: apiKey }}
       )
       .then((res) => res.data)
-      .catch((e) => dispatch({ type: "SHOW_ERROR", showError: true }));
+      .catch((e) =>{
+        console.log(e);
+        dispatch({ type: "SHOW_ERROR", showError: true })
+      });
     return promise;
   };
 
