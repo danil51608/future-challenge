@@ -7,10 +7,10 @@ import Error from "./components/Error/Error";
 import Loader from "./components/UI/Loader";
 import axios from "axios";
 import "./App.css";
+console.log(process.env.REACT_APP_KEY)
 
 function App() {
   const dispatch = useDispatch();
-
   const showError = useSelector((state) => state.showError);
   const showLoader = useSelector((state) => state.showLoader);
 
