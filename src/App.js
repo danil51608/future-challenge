@@ -18,7 +18,7 @@ function App() {
     const promise = await axios
       .get(
         `https://www.googleapis.com/books/v1/volumes?q=${searchText}+subject:${category}`,
-        { params: { startIndex: page, maxResults: 30, key: apiKey }}
+        { params: { startIndex: page, maxResults: 30}}
       )
       .then((res) => res.data)
       .catch((e) =>{
