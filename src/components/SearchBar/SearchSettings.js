@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import { useDispatch } from "react-redux";
 import styles from "./SearchBar.module.css";
+import { InputLabel, Select, MenuItem } from '@material-ui/core';
 
 const SearchSettings = () => {
   const dispatch = useDispatch();
@@ -16,24 +17,24 @@ const SearchSettings = () => {
   return (
     <Fragment>
       <div className={styles.searchSettings}>
-        <label htmlFor="categories">Categories</label>
-        <select onChange={categoryChangeHandler} id="categories">
-          <option value="all">All</option>
-          <option value="art">Art</option>
-          <option value="biography">Biography</option>
-          <option value="computers">Computers</option>
-          <option value="history">History</option>
-          <option value="medical">Medical</option>
-          <option value="poetry">Poetry</option>
-        </select>
+        <InputLabel id="categories">Categories</InputLabel>
+        <Select defaultValue='all' labelId="categories" onChange={categoryChangeHandler} id="categories">
+          <MenuItem value="all">All</MenuItem>
+          <MenuItem value="art">Art</MenuItem>
+          <MenuItem value="biography">Biography</MenuItem>
+          <MenuItem value="computers">Computers</MenuItem>
+          <MenuItem value="history">History</MenuItem>
+          <MenuItem value="medical">Medical</MenuItem>
+          <MenuItem value="poetry">Poetry</MenuItem>
+        </Select>
       </div>
 
       <div className={styles.searchSettings}>
-        <label htmlFor="sort">Sort By</label>
-        <select onChange={sortChangeHandler} id="sort">
-          <option value="relevance">Relevance</option>
-          <option value="newest">Newest</option>
-        </select>
+        <InputLabel id="sort">Sort By</InputLabel>
+        <Select defaultValue='relevance' onChange={sortChangeHandler} labelId='sort' id="sort">
+          <MenuItem value="relevance">Relevance</MenuItem>
+          <MenuItem value="newest">Newest</MenuItem>
+        </Select>
       </div>
     </Fragment>
   );

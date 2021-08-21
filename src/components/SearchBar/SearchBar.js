@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./SearchBar.module.css";
-
+import { TextField, Button } from '@material-ui/core';
 import SearchSettings from "./SearchSettings";
 
 const SearchBar = (props) => {
@@ -53,15 +53,14 @@ const SearchBar = (props) => {
     <div className={styles.wrapper}>
       <h1>Search for books</h1>
       <div className={styles["search-container"]}>
-        <input
-          type="text"
+        <TextField
           value={searchText}
           onChange={searchChangeHandler}
           className={styles.search}
-          placeholder="Type a book name..."
+          label="Type a book name..."
           ref={searchRef}
         />
-        <button onClick={searchHandler}>Search</button>
+        <Button variant='contained' color='primary' onClick={searchHandler}>Search</Button>
       </div>
       {booksObj.items && <h3>Found {booksObj.totalItems} results</h3>}
       <SearchSettings />

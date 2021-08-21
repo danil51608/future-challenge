@@ -3,12 +3,13 @@
   height: 400px;
   padding-bottom: 20px;
   margin-bottom: 20px;
-  background: #748181;
+  background: #a094b7;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow: auto;
+  color: #000;
 }
 .img-part {
   width: 100%;
@@ -23,6 +24,7 @@
 
 .card-body h1 {
   font-size: 1rem;
+  color: #000;
 }
 
 .card-body h2 {
@@ -53,5 +55,5 @@
   width: 100%;
   padding: 10px;
   height: 40%;
-  text-shadow: 1px 1px 2px #000;
+  color: #000;
 }

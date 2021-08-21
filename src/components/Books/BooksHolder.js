@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./BooksHolder.module.css";
+import { Button } from '@material-ui/core';
 
 import BookCard from "./BookCard";
 
@@ -67,8 +68,8 @@ const BooksHolder = (props) => {
           : itemNotFoundMsg}
       </div>
       {books && (
-        <div className={styles.loadMore}>
-          {loadMore && <button onClick={loadMoreHandler}>Load More</button>}
+        <div>
+          {loadMore && <Button variant='contained'  onClick={loadMoreHandler}>Load More</Button>}
           {!loadMore && <h1>No more books have been found</h1>}
         </div>
       )}

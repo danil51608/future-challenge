@@ -1,7 +1,7 @@
 .wrapper {
-  background: #3f334d;
+  background: #d1c4e9;
   padding: 50px;
-  color: #fff;
+  color: #000;
 }
 
 .search-container {
@@ -9,25 +9,15 @@
   margin: 0 auto;
 }
 
-.search-container button {
-  padding: 10px;
-  font-size: 1rem;
-  outline: none;
-  transition: all 0.5s ease;
-}
-
 .search-container button:hover {
-  background: #1161a1;
+  background: #65499c;
   color: #fff;
+  border: none;
 }
 
 .searchSettings {
   display: inline-block;
   margin: 10px 10px 0 0;
-}
-
-.searchSettings label {
-  margin-right: 10px;
 }
 
 .search {

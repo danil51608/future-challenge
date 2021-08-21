@@ -6,19 +6,6 @@
   align-items: center;
 }
 
-.wrapper button {
-  width: 100px;
-  height: 50px;
-  background: #476a97;
-  color: #fff;
-  border-radius: 10px;
-  font-weight: bold;
-}
-
-.wrapper button:hover {
-  background: #476a97;
-}
-
 .BooksHolder {
   justify-content: space-around;
   display: flex;
